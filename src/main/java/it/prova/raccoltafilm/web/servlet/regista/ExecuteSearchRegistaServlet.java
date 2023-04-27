@@ -36,6 +36,7 @@ public class ExecuteSearchRegistaServlet extends HttpServlet {
 		String sessoParam = request.getParameter("sesso");
 
 		Sesso sessoParsed = StringUtils.isNotBlank(sessoParam) ? Sesso.valueOf(sessoParam) : null;
+		//modificare create
 		Regista example = new Regista(nomeParam, cognomeParam, nickNameParam,
 				UtilityForm.parseDateArrivoFromString(dataDiNascitaParam), sessoParsed);
 

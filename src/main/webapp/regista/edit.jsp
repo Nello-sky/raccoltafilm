@@ -82,15 +82,16 @@
 									<label for="sesso" class="form-label">Sesso <span class="text-danger">*</span></label>
 								    <select class="form-select" id="sesso" name="sesso" required>
 								    	<option value="" selected>
-								    	 - <c:out value="${not empty RegistaInPagina.sesso ? RegistaInPagina.sesso : ''}" />
-								    	  - </option>
-								      	<option value="MASCHIO" ${insert_regista_attr.sesso == 'MASCHIO'?'selected':''} >M</option>
-								      	<option value="FEMMINA" ${insert_regista_attr.sesso == 'FEMMINA'?'selected':''} >F</option>
+								    	- <c:out value="${not empty RegistaInPagina.sesso ? RegistaInPagina.sesso : ''}" /> -
+								    	   </option>
+								      	<option value="MASCHIO" ${RegistaInPagina.sesso == 'MASCHIO'?'selected':''} >M</option>
+								      	<option value="FEMMINA" ${RegistaInPagina.sesso == 'FEMMINA'?'selected':''} >F</option>
 								    </select>
 								</div>
 								
 								
 							<div class="col-12">
+								<input type="hidden" name="idRegistaUpdate" value="<c:out value="${RegistaInPagina.id}" />">
 								<button type="submit" name="insertSubmit" value="insertSubmit" id="insertSubmit" class="btn btn-primary">Conferma</button>
 							</div>
 		
