@@ -15,26 +15,27 @@ import it.prova.raccoltafilm.service.RegistaService;
 public class PrepareSearchFilmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	// injection del Service
 	private RegistaService registaService;
 
 	public PrepareSearchFilmServlet() {
 		this.registaService = MyServiceFactory.getRegistaServiceInstance();
 	}
-
+	
+	
+	
+	//deve portarmi solamente a film.show
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		// controllare cosa succede se non sono presenti registi, che poi significa anche nessun film.........
 		try {
-			// questo mi serve per la select di registi in pagina
 			request.setAttribute("registi_list_attribute", registaService.listAllElements());
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
 			request.getRequestDispatcher("home").forward(request, response);
 			return;
 		}
-
+		
 		request.getRequestDispatcher("/film/search.jsp").forward(request, response);
 	}
 

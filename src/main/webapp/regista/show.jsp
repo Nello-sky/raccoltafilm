@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<!doctype html>
-<html lang="it" class="h-100" >
+<!DOCTYPE html>
 	 <head>
 
 	 	<!-- Common imports in pages -->
@@ -24,65 +26,69 @@
 					        <h5>Visualizza dettaglio</h5>
 					    </div>
 					    
-					
 					    <div class='card-body'>
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Id:</dt>
-							  <dd class="col-sm-9">${show_film_attr.id}</dd>
+							  <dd class="col-sm-9">${show_regista_attr.id}</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
-							  <dt class="col-sm-3 text-right">Titolo:</dt>
-							  <dd class="col-sm-9">${show_film_attr.titolo}</dd>
+							  <dt class="col-sm-3 text-right">nome:</dt>
+							  <dd class="col-sm-9">${show_regista_attr.nome}</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
-							  <dt class="col-sm-3 text-right">Genere:</dt>
-							  <dd class="col-sm-9">${show_film_attr.genere}</dd>
+							  <dt class="col-sm-3 text-right">cognome:</dt>
+							  <dd class="col-sm-9">${show_regista_attr.cognome}</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
-							  <dt class="col-sm-3 text-right">Data Pubblicazione:</dt>
+							  <dt class="col-sm-3 text-right">nickname:</dt>
+							  <dd class="col-sm-9">${show_regista_attr.nickName}</dd>
+					    	</dl>
+					    	
+					    	<dl class="row">
+							  <dt class="col-sm-3 text-right">Data di Nascita:</dt>
 							  <dd class="col-sm-9">
-							  	<fmt:parseDate value="${show_film_attr.dataPubblicazione}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
+							  	<fmt:parseDate value="${show_regista_attr.dataDiNascita}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
 								<fmt:formatDate pattern="dd/MM/yyyy" value="${localDateToBeParsed}" />
 							  </dd>
 					    	</dl>
 					    	
-					    	<dl class="row">
-							  <dt class="col-sm-3 text-right">Durata (min.):</dt>
-							  <dd class="col-sm-9">${show_film_attr.minutiDurata}</dd>
-					    	</dl>
+					    	
 					    	
 					    	<!-- info Regista -->
 					    	<p>
 							  <a class="btn btn-primary btn-sm" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-							    Info Regista
+							    Info Films
 							  </a>
 							</p>
+								<c:forEach items="${show_regista_attr.films }" var="filmsItem">
+							
 							<div class="collapse" id="collapseExample">
 							  <div class="card card-body">
 							  	<dl class="row">
-								  <dt class="col-sm-3 text-right">Nome:</dt>
-								  <dd class="col-sm-9">${show_film_attr.regista.nome}</dd>
+								  <dt class="col-sm-3 text-right">titolo:</dt>
+								  <dd class="col-sm-9">${filmsItem.titolo}</dd>
 							   	</dl>
 							   	<dl class="row">
-								  <dt class="col-sm-3 text-right">Cognome:</dt>
-								  <dd class="col-sm-9">${show_film_attr.regista.cognome}</dd>
+								  <dt class="col-sm-3 text-right">genere:</dt>
+								  <dd class="col-sm-9">${filmsItem.genere}</dd>
 							   	</dl>
 							   	<dl class="row">
-								  <dt class="col-sm-3 text-right">Nickname:</dt>
-								  <dd class="col-sm-9">${show_film_attr.regista.nickName}</dd>
+								  <dt class="col-sm-3 text-right">data di pubblicazione:</dt>
+								  <dd class="col-sm-9">${filmsItem.dataPubblicazione}</dd>
 							   	</dl>
 							   	<dl class="row">
-								  <dt class="col-sm-3 text-right">Sesso:</dt>
-								  <dd class="col-sm-9">${show_film_attr.regista.sesso}</dd>
+								  <dt class="col-sm-3 text-right">minuti di durata:</dt>
+								  <dd class="col-sm-9">${filmsItem.minutiDurata}</dd>
 							   	</dl>
+							    
 							    
 							  </div>
 							<!-- end info Regista -->
 							</div>
-					    	
+					    	</c:forEach>
 					    <!-- end card body -->
 					    </div>
 					    
