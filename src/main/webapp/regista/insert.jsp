@@ -40,22 +40,25 @@
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form method="post" action="ExecuteInsertRegistaServlet" class="row g-3" novalidate="novalidate">
+							<form method="post" action="ExecuteInsertRegistaServlet" class="row g-3" novalidate="novalidate" onSubmit="return validateRegista()" >
 							
 							
 								<div class="col-md-6">
 									<label for="nome" class="form-label">Nome <span class="text-danger">*</span></label>
 									<input type="text" name="nome" id="nome" class="form-control" placeholder="Inserire il nome" value="${insert_regista_attr.nome }" required>
+									<p id="checkNome" style="color:red;"> </p>							
 								</div>
 								
 								<div class="col-md-6">
 									<label for="cognome" class="form-label">Cognome <span class="text-danger">*</span></label>
 									<input type="text" name="cognome" id="cognome" class="form-control" placeholder="Inserire il cognome" value="${insert_regista_attr.cognome }" required>
+									<p id="checkCognome" style="color:red;"> </p>
 								</div>
 							
 								<div class="col-md-6">
 									<label for="nickName" class="form-label">Nickname <span class="text-danger">*</span></label>
 									<input type="text" class="form-control" name="nickName" id="nickName" placeholder="Inserire il nickname" value="${insert_regista_attr.nickName }" required>
+									<p id="checkNickName" style="color:red;"> </p>
 								</div>
 								
 								<fmt:parseDate value="${insert_regista_attr.dataDiNascita}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
@@ -64,15 +67,17 @@
 									<label for="dataDiNascita" class="form-label">Data di Nascita <span class="text-danger">*</span></label>
                         			<input class="form-control" id="dataDiNascita" type="date" placeholder="dd/MM/yy"
                             			title="formato : gg/mm/aaaa"  name="dataDiNascita" required value="${parsedDate}" >
+									<p id="checkDataNascita" style="color:red;"> </p>
 								</div>
 								
 								<div class="col-md-3">
 									<label for="sesso" class="form-label">Sesso <span class="text-danger">*</span></label>
 								    <select class="form-select" id="sesso" name="sesso" required>
-								    	<option value="" selected> - Selezionare - </option>
+								    	<option value="" selected> Selezionare </option>
 								      	<option value="MASCHIO" ${insert_regista_attr.sesso == 'MASCHIO'?'selected':''} >M</option>
 								      	<option value="FEMMINA" ${insert_regista_attr.sesso == 'FEMMINA'?'selected':''} >F</option>
 								    </select>
+								    <p id="checkSesso" style="color:red;"> </p>
 								</div>
 								
 								
@@ -97,5 +102,8 @@
 			
 			<!-- Footer -->
 			<jsp:include page="../footer.jsp" />
+			
+			<script src="${pageContext.request.contextPath }/regista/validateFormRegista.js"></script>
 	  </body>
 </html>
+

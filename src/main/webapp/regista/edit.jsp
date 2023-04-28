@@ -43,7 +43,7 @@
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form method="post" action="ExecuteEditRegistaServlet" class="row g-3" novalidate="novalidate">
+							<form method="post" action="ExecuteEditRegistaServlet" class="row g-3" novalidate="novalidate" onSubmit="return validateRegista()">
 							
 							<c:set var="RegistaInPagina" value="${requestScope.update_regista_attr}" />
 							
@@ -51,18 +51,21 @@
 									<label for="nome" class="form-label">Nome <span class="text-danger">*</span></label>
 									<input type="text" name="nome" id="nome" class="form-control" placeholder="Inserire il nome"
 									 value="<c:out value="${not empty RegistaInPagina.nome ? RegistaInPagina.nome : ''}" />" required>
+									 <p id="checkNome" style="color:red;"> </p>	
 								</div>
 								
 								<div class="col-md-6">
 									<label for="cognome" class="form-label">Cognome <span class="text-danger">*</span></label>
 									<input type="text" name="cognome" id="cognome" class="form-control" placeholder="Inserire il cognome"
 									 value="<c:out value="${not empty RegistaInPagina.cognome ? RegistaInPagina.cognome : ''}" />" required>
+									 <p id="checkCognome" style="color:red;"> </p>
 								</div>
 							
 								<div class="col-md-6">
 									<label for="nickName" class="form-label">Nickname <span class="text-danger">*</span></label>
 									<input type="text" class="form-control" name="nickName" id="nickName" placeholder="Inserire il nickname"
 									 value="<c:out value="${not empty RegistaInPagina.nickName ? RegistaInPagina.nickName : ''}" />" required>
+									 <p id="checkNickName" style="color:red;"> </p>
 								</div>
 								
 								
@@ -74,6 +77,7 @@
                         			<input class="form-control" id="dataDiNascita" type="date" placeholder="dd/MM/yy"
                             			title="formato : gg/mm/aaaa"  name="dataDiNascita" required 
                             			value="<c:out value="${not empty RegistaInPagina.dataDiNascita ? RegistaInPagina.dataDiNascita : ''}" />">
+                            			<p id="checkDataNascita" style="color:red;"> </p>
 								</div>
 								
 								
@@ -82,11 +86,12 @@
 									<label for="sesso" class="form-label">Sesso <span class="text-danger">*</span></label>
 								    <select class="form-select" id="sesso" name="sesso" required>
 								    	<option value="" selected>
-								    	- <c:out value="${not empty RegistaInPagina.sesso ? RegistaInPagina.sesso : ''}" /> -
+								    	- select sex -
 								    	   </option>
 								      	<option value="MASCHIO" ${RegistaInPagina.sesso == 'MASCHIO'?'selected':''} >M</option>
 								      	<option value="FEMMINA" ${RegistaInPagina.sesso == 'FEMMINA'?'selected':''} >F</option>
 								    </select>
+								    <p id="checkSesso" style="color:red;"> </p>
 								</div>
 								
 								
@@ -112,5 +117,6 @@
 			
 			<!-- Footer -->
 			<jsp:include page="../footer.jsp" />
+			<script src="${pageContext.request.contextPath }/regista/validateFormRegista.js"></script>
 	  </body>
 </html>

@@ -71,7 +71,7 @@
 									<label for="regista.id">Regista <span class="text-danger">*</span></label>
 								    <select class="form-select" id="regista.id" name="regista.id">
 								    	<option value="" selected>
-								    	 -- ciao  -- </option>
+								    	 -- select regista  -- </option>
 								      	<c:forEach items="${registi_list_attribute }" var="registaItem">
 								      		<option value="${registaItem.id}" ${FilmInPagina.regista.id == registaItem.id?'selected':''} >${registaItem.nome } ${registaItem.cognome }</option>
 								      	</c:forEach>
