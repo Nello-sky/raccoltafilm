@@ -6,27 +6,27 @@ import it.prova.raccoltafilm.dao.UtenteDAO;
 import it.prova.raccoltafilm.model.Ruolo;
 import it.prova.raccoltafilm.model.Utente;
 
-public interface UtenteService  {
-	
-	public List<Utente> listAll() throws Exception;
+public interface UtenteService {
 
-	public Utente caricaSingoloElemento(Long id) throws Exception;
+	List<Utente> listAll() throws Exception;
 
-	public void aggiorna(Utente utenteInstance) throws Exception;
+	Utente caricaSingoloElemento(Long id) throws Exception;
 
-	public void inserisciNuovo(Utente utenteInstance) throws Exception;
+	void aggiorna(Utente utenteInstance) throws Exception;
 
-	public void rimuovi(Long idUtenteToRemove) throws Exception;
-	
-	public void aggiungiRuolo(Utente utenteEsistente, Ruolo ruoloInstance) throws Exception;
-	
-	public Utente findByUsernameAndPassword(String username, String password) throws Exception;
-	
-	public Utente accedi(String username, String password) throws Exception;
-	
-	public List<Utente> findByExample(Utente example) throws Exception;
+	void inserisciNuovo(Utente utenteInstance) throws Exception;
 
-	//per injection
-	public void setUtenteDAO(UtenteDAO utenteDAO);
+	void rimuovi(Long idUtenteToRemove) throws Exception;
+
+	void aggiungiRuolo(Utente utenteEsistente, Ruolo ruoloInstance) throws Exception;
+
+	Utente findByUsernameAndPassword(String username, String password) throws Exception;
+
+	Utente accedi(String username, String password) throws Exception;
+
+	List<Utente> findByExample(Utente example) throws Exception;
+
+	// per injection
+	void setUtenteDAO(UtenteDAO utenteDAO);
 
 }

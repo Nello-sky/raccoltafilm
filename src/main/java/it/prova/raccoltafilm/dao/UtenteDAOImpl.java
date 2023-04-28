@@ -93,7 +93,7 @@ public class UtenteDAOImpl implements UtenteDAO {
 
 	@Override
 	public List<Utente> findByExample(Utente example) throws Exception {
-		
+
 		Map<String, Object> paramaterMap = new HashMap<String, Object>();
 		List<String> whereClauses = new ArrayList<String>();
 

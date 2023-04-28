@@ -6,7 +6,8 @@ import java.util.Optional;
 import it.prova.raccoltafilm.model.Film;
 
 public interface FilmDAO extends IBaseDAO<Film> {
-	public Optional<Film> findOneEager(Long id) throws Exception;
-	
-	public List<Film> findByExample(Film example) throws Exception;
+
+	Optional<Film> findOneEager(Long id) throws Exception;
+
+	List<Film> findByExample(Film example) throws Exception;
 }

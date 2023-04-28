@@ -8,12 +8,12 @@ import it.prova.raccoltafilm.model.Utente;
 
 public interface UtenteDAO extends IBaseDAO<Utente> {
 
-	public List<Utente> findAllByRuolo(Ruolo ruoloInput) throws Exception;
+	List<Utente> findAllByRuolo(Ruolo ruoloInput) throws Exception;
 
-	public Optional<Utente> findByUsernameAndPassword(String username, String password) throws Exception;
+	Optional<Utente> findByUsernameAndPassword(String username, String password) throws Exception;
 
-	public Optional<Utente> login(String username, String password) throws Exception;
-	
-	public List<Utente> findByExample(Utente example) throws Exception;
+	Optional<Utente> login(String username, String password) throws Exception;
+
+	List<Utente> findByExample(Utente example) throws Exception;
 
 }

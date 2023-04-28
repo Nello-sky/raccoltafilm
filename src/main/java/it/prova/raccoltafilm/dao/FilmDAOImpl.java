@@ -67,7 +67,7 @@ public class FilmDAOImpl implements FilmDAO {
 
 	@Override
 	public List<Film> findByExample(Film example) throws Exception {
-		
+
 		Map<String, Object> paramaterMap = new HashMap<String, Object>();
 		List<String> whereClauses = new ArrayList<String>();
 

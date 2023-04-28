@@ -79,7 +79,7 @@
 							   	<dl class="row">
 								  <dt class="col-sm-3 text-right">data di pubblicazione:</dt>
 								  <dd class="col-sm-9">
-								    <fmt:parseDate value="${filmsItem.dataPubblicazione}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
+								     <fmt:parseDate value="${filmsItem.dataPubblicazione}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
 								    <fmt:formatDate pattern="dd/MM/yyyy" value="${localDateToBeParsed}" />
 								  </dd>
 							   	</dl>
