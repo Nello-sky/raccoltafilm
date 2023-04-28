@@ -32,10 +32,7 @@
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListRegistaServlet">Lista Registi</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListFilmServlet">Lista Film</a></li>
               
-              <%-- QUESTO LINK SERVE SOLO PER DIMOSTRARE COME GESTIRE LA COMPARSA/SCOMPARSA IN BASE AL RUOLO --%>
-              <c:if test="${userInfo.isAdmin() }">
-              	<li><a class="dropdown-item" href="#">Link che appare solo se sei ADMIN</a></li>
-              </c:if>
+              
             </ul> 
           </li>   
         </ul>

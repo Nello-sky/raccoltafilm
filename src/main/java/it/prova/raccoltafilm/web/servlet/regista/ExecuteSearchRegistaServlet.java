@@ -37,8 +37,10 @@ public class ExecuteSearchRegistaServlet extends HttpServlet {
 
 		Sesso sessoParsed = StringUtils.isNotBlank(sessoParam) ? Sesso.valueOf(sessoParam) : null;
 		//modificare col create e spostare la logica
-		Regista example = new Regista(nomeParam, cognomeParam, nickNameParam,
-				UtilityForm.parseDateArrivoFromString(dataDiNascitaParam), sessoParsed);
+//		Regista example = new Regista(nomeParam, cognomeParam, nickNameParam,
+//				UtilityForm.parseDateArrivoFromString(dataDiNascitaParam), sessoParsed);
+		
+		Regista example = UtilityForm.createRegistaFromParams(nomeParam, cognomeParam, nickNameParam, dataDiNascitaParam, sessoParam);
 
 		try {
 			request.setAttribute("registi_list_attribute", registaService.findByExample(example));

@@ -22,8 +22,8 @@ public class CheckAuthFilter implements Filter {
 	private static final String[] EXCLUDED_URLS = {"/login.jsp","/LoginServlet","/LogoutServlet","/assets/"};
 	//la jsp va protetta singolarmente perché ci troviamo in un caso eccezionale, in cui le risorse protette
 	//sono insieme a quelle che non lo sono
-	private static final String[] PROTECTED_URLS = {"/admin/","/users/","/regista/delete.jsp"};
-       //"/utente/search.jsp"
+	private static final String[] PROTECTED_URLS = {"/admin/","/users/","/regista/delete.jsp","/utente/search.jsp"};
+       
 	public CheckAuthFilter() {
 	}
 
