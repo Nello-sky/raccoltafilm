@@ -58,7 +58,7 @@ public class ExecuteVisualizzaRegistaServlet extends HttpServlet {
 			return;
 		}
 
-		request.getRequestDispatcher("/regista/show.jsp").forward(request, response);
+		request.getRequestDispatcher("/regista/show2.jsp").forward(request, response);
 	}
 
 }

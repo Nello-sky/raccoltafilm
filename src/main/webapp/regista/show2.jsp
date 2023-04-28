@@ -56,7 +56,10 @@
 							  </dd>
 					    	</dl>
 					    	
-					    	
+					    	<dl class="row">
+							  <dt class="col-sm-3 text-right">sesso:</dt>
+							  <dd class="col-sm-9">${show_regista_attr.sesso}</dd>
+					    	</dl>
 					    	
 					    	<!-- info Regista -->
 					    	<p>
@@ -64,35 +67,41 @@
 							    Info Films
 							  </a>
 							</p>
-								<c:forEach items="${show_regista_attr.films }" var="filmsItem">
+								
 							
 							<div class="collapse" id="collapseExample">
 							  <div class="card card-body">
-							  	<dl class="row">
-								  <dt class="col-sm-3 text-right">titolo:</dt>
-								  <dd class="col-sm-9">${filmsItem.titolo}</dd>
-							   	</dl>
-							   	<dl class="row">
-								  <dt class="col-sm-3 text-right">genere:</dt>
-								  <dd class="col-sm-9">${filmsItem.genere}</dd>
-							   	</dl>
-							   	<dl class="row">
-								  <dt class="col-sm-3 text-right">data di pubblicazione:</dt>
-								  <dd class="col-sm-9">
-								     <fmt:parseDate value="${filmsItem.dataPubblicazione}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
-								    <fmt:formatDate pattern="dd/MM/yyyy" value="${localDateToBeParsed}" />
-								  </dd>
-							   	</dl>
-							   	<dl class="row">
-								  <dt class="col-sm-3 text-right">minuti di durata:</dt>
-								  <dd class="col-sm-9">${filmsItem.minutiDurata}</dd>
-							   	</dl>
-							    
+							  	
+										    <div class='table-responsive'>
+							            <table class='table table-striped ' >
+							                <thead>
+							                    <tr>
+						                         	<th>Titolo</th>
+							                        <th>Genere</th>
+							                        <th>Data di pubblicazione</th>
+							                        <th>Minuti di durata</th>
+							                    </tr>
+							                </thead>
+							                <tbody>
+							                	<c:forEach items="${show_regista_attr.films  }" var="filmsItem">
+													<tr>
+														<td>${filmsItem.titolo}</td>
+														<td>${filmsItem.genere }</td>
+														<td>
+															<fmt:parseDate value="${filmsItem.dataPubblicazione}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
+															<fmt:formatDate pattern="dd/MM/yyyy" value="${localDateToBeParsed}" />
+														</td>
+														<td>${filmsItem.minutiDurata }</td>
+													</tr>
+												</c:forEach>
+							                </tbody>
+							            </table>
+							        </div>
 							    
 							  </div>
 							<!-- end info Regista -->
 							</div>
-					    	</c:forEach>
+					    	
 					    <!-- end card body -->
 					    </div>
 					    

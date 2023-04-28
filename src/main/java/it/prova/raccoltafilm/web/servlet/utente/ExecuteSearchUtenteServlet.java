@@ -39,14 +39,14 @@ public class ExecuteSearchUtenteServlet extends HttpServlet {
 		// parse + carico il regista
 		Utente example = UtilityForm.createUtenteFromParams(usernameParam, nomeParam, cognomeParam, dataCreazioneParam);
 		try {
-			request.setAttribute("utente_list_attribute", utenteService.findByExample(example));
+			request.setAttribute("utente_list_attribute", utenteService.findByExampleEager(example));
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
 			request.getRequestDispatcher("/utente/search.jsp").forward(request, response);
 			return;
 		}
-		request.getRequestDispatcher("/utente/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/utente/list2.jsp").forward(request, response);
 	}
 
 }
