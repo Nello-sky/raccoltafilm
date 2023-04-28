@@ -26,6 +26,9 @@
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareInsertRegistaServlet">Inserisci Regista</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareSearchFilmServlet">Ricerca Film</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareInsertFilmServlet">Inserisci Film</a></li>
+              <c:if test="${userInfo.isAdmin() }">
+               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareSearchUtenteServlet">Ricerca Utenti</a></li>
+               </c:if>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListRegistaServlet">Lista Registi</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListFilmServlet">Lista Film</a></li>
               

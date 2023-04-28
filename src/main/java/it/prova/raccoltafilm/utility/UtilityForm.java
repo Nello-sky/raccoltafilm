@@ -9,6 +9,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 import it.prova.raccoltafilm.model.Film;
 import it.prova.raccoltafilm.model.Regista;
 import it.prova.raccoltafilm.model.Sesso;
+import it.prova.raccoltafilm.model.Utente;
 
 public class UtilityForm {
 
@@ -66,5 +67,13 @@ public class UtilityForm {
 		} catch (DateTimeParseException e) {
 			return null;
 		}
+	}
+	
+	public static Utente createUtenteFromParams(String usernameInputParam, String nomeInputParam,
+			String cognomeInputParam, String dateCreatedStringParam) {
+
+		Utente result = new Utente(usernameInputParam, nomeInputParam, cognomeInputParam);
+		result.setDateCreated(parseDateArrivoFromString(dateCreatedStringParam));
+		return result;
 	}
 }
