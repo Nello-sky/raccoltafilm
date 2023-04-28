@@ -33,17 +33,19 @@
 							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
-							<form method="post" action="ExecuteInsertFilmServlet" class="row g-3" novalidate="novalidate">
+							<form method="post" action="ExecuteInsertFilmServlet" class="row g-3" novalidate="novalidate" onSubmit="return validateFilm()">
 							
 							
 								<div class="col-md-6">
 									<label for="titolo" class="form-label">Titolo <span class="text-danger">*</span></label>
 									<input type="text" name="titolo" id="titolo" class="form-control" placeholder="Inserire il titolo" value="${insert_film_attr.titolo }">
+									<p id="checkTitolo" style="color:red;"> </p>	
 								</div>
 								
 								<div class="col-md-6">
 									<label for="genere" class="form-label">Genere <span class="text-danger">*</span></label>
 									<input type="text" name="genere" id="genere" class="form-control" placeholder="Inserire il genere" value="${insert_film_attr.genere }">
+									<p id="checkGenere" style="color:red;"> </p>
 								</div>
 							
 								<fmt:parseDate value="${insert_film_attr.dataPubblicazione}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
@@ -52,11 +54,13 @@
 									<label for="dataPubblicazione" class="form-label">Data di Pubblicazione <span class="text-danger">*</span></label>
 	                        		<input class="form-control" id="dataPubblicazione" type="date" placeholder="dd/MM/yy" 
 	                        				title="formato : gg/mm/aaaa"  name="dataPubblicazione" value="${parsedDate}" >
+                       				<p id="checkDataPubblicazione" style="color:red;"> </p>
 								</div>
 								
 								<div class="col-md-6">
 									<label for="minutiDurata" class="form-label">Durata (minuti) <span class="text-danger">*</span></label>
 									<input type="number" class="form-control" name="minutiDurata" id="minutiDurata" placeholder="Inserire la durata" value="${insert_film_attr.minutiDurata }">
+									<p id="checkDurata" style="color:red;"> </p>
 								</div>
 								
 								
@@ -68,6 +72,7 @@
 								      		<option value="${registaItem.id}" ${insert_film_attr.regista.id == registaItem.id?'selected':''} >${registaItem.nome } ${registaItem.cognome }</option>
 								      	</c:forEach>
 								    </select>
+								    <p id="checkRegista" style="color:red;"> </p>
 								</div>
 								
 								<div class="col-12">
@@ -91,5 +96,6 @@
 			
 			<!-- Footer -->
 			<jsp:include page="../footer.jsp" />
+			<script src="${pageContext.request.contextPath }/film/validateFormFilm.js"></script>
 	  </body>
 </html>
