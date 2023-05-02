@@ -37,7 +37,7 @@ public class ExecuteListRegistaServlet extends HttpServlet {
 			if (StringUtils.isNotBlank(operationResult) && operationResult.equalsIgnoreCase("NOT_FOUND"))
 				request.setAttribute("errorMessage", "Elemento non trovato.");
 			if (StringUtils.isNotBlank(operationResult) && operationResult.equalsIgnoreCase("NOT_VALID"))
-				request.setAttribute("errorMessage", "Non rimovibile, legato a films.");
+				request.setAttribute("errorMessage", "Non rimovibile, legato a films. Rimuovere prima tutti i film del regista!");
 
 			request.setAttribute("registi_list_attribute", registaService.listAllElements());
 		} catch (Exception e) {

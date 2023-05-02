@@ -97,7 +97,7 @@
 					</div>
 
 					<div class='card-footer'>
-						<form action="${pageContext.request.contextPath}/ExecuteDeleteRegistaServlet" method="post">
+						<form action="ExecuteDeleteRegistaServlet" method="post">
 					    		<input type="hidden" name="idRegistaDelete" value="${delete_regista_attr.id}">
 						    	<button type="submit" name="submit" id="submit" class="btn btn-danger">Conferma</button>
 						<a

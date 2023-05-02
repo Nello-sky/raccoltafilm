@@ -27,6 +27,8 @@ public interface UtenteService {
 	List<Utente> findByExample(Utente example) throws Exception;
 	
 	List<Utente> findByExampleEager(Utente example) throws Exception;
+	
+	Utente caricaSingoloEager(Long idUtente)throws Exception;
 
 	// per injection
 	void setUtenteDAO(UtenteDAO utenteDAO);

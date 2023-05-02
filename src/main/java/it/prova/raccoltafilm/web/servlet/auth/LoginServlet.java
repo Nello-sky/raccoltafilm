@@ -16,7 +16,11 @@ import it.prova.raccoltafilm.service.UtenteService;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+/**
+	 * 
+	 */
+//	private static final long serialVersionUID = 3172348475463657333L;
+	private static final long serialVersionUID = 1L; // serializable
 	
 	// injection del Service
 	private UtenteService utenteService;

@@ -233,4 +233,24 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 	}
 
+	@Override
+	public Utente caricaSingoloEager(Long idUtente) throws Exception {
+		// questo è come una connection
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			// uso l'injection per il dao
+			utenteDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			return utenteDAO.findOneEager(idUtente).orElse(null);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	}
+
 }

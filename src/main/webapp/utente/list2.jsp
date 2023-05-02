@@ -43,33 +43,33 @@
 				            <table class='table table-striped ' >
 				                <thead>
 				                    <tr>
-			                         	<th>Username</th>
-				                        <th>Nome</th>
-				                        <th>Cognome</th>
-				                        <th>Data Creazione</th>
-				                        <th>Stato</th>
-				                        <th>Admin</th>
-				                        <th>ClassicUser</th>
-				                        <th>Azioni</th>
+			                         	<th style="text-align:center">Username</th>
+				                        <th style="text-align:center">Nome</th>
+				                        <th style="text-align:center">Cognome</th>
+				                        <th style="text-align:center">Data Creazione</th>
+				                        <th style="text-align:center">Stato</th>
+				                        <th style="text-align:center">Admin</th>
+				                        <th style="text-align:center">ClassicUser</th>
+				                        <th style="text-align:center">Azioni</th>
 				                    </tr>
 				                </thead>
 				                <tbody>
 				                	<c:forEach items="${utente_list_attribute }" var="utenteItem">
 										<tr>
-											<td>${utenteItem.username }</td>
-											<td>${utenteItem.nome }</td>
-											<td>${utenteItem.cognome }</td>
-											<td>
+											<td style="text-align:center">${utenteItem.username }</td>
+											<td style="text-align:center">${utenteItem.nome }</td>
+											<td style="text-align:center">${utenteItem.cognome }</td>
+											<td style="text-align:center">
 												<fmt:parseDate value="${utenteItem.dateCreated}" pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date"/>
 												<fmt:formatDate pattern="dd/MM/yyyy" value="${localDateToBeParsed}" />
 											</td>
-											<td>${utenteItem.stato }</td>
-											<td>
+											<td style="text-align:center">${utenteItem.stato }</td>
+											<td style="text-align:center">
 												<c:forEach items="${utenteItem.ruoli }" var="ruoliItem">
 													${ruoliItem.codice == 'ROLE_ADMIN'?'✓':''  }
 												</c:forEach>
 											</td>
-											<td>
+											<td  style="text-align:center">
 												<c:forEach items="${utenteItem.ruoli }" var="ruoliItem">
 													${ruoliItem.codice == 'ROLE_CLASSIC_USER'?'✓':''  }
 												</c:forEach>
