@@ -31,6 +31,9 @@
                </c:if>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListRegistaServlet">Lista Registi</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListFilmServlet">Lista Film</a></li>
+              <c:if test="${userInfo.isAdmin() }">
+               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/ExecuteListUtenteServlet">Lista Utente</a></li>
+               </c:if>
               
               
             </ul> 

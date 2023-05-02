@@ -37,7 +37,7 @@
 				        <h5>Lista dei risultati</h5> 
 				    </div>
 				    <div class='card-body'>
-				    	<a class="btn btn-primary " href="PrepareInsertFilmServlet">Add New</a>
+				    	<a class="btn btn-primary " href="PrepareInsertUtenteServlet">Add New</a>
 				    
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >

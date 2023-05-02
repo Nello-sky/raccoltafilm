@@ -69,6 +69,7 @@ public class UtilityForm {
 		}
 	}
 	
+	//controllare assolutamente
 	public static Utente createUtenteFromParams(String usernameInputParam, String nomeInputParam,
 			String cognomeInputParam, String dateCreatedStringParam) {
 
@@ -76,4 +77,32 @@ public class UtilityForm {
 		result.setDateCreated(parseDateArrivoFromString(dateCreatedStringParam));
 		return result;
 	}
+	
+	public static Utente createUtenteFromAllParams(String usernameInputParam, String nomeInputParam,
+			String cognomeInputParam,  String passwordInputParam) {
+		
+		Utente result = new Utente(usernameInputParam,passwordInputParam, nomeInputParam, cognomeInputParam);
+		result.setDateCreated(LocalDate.now());
+		return result;
+	}
+	
+	public static boolean validatePassword(String password, String checkPW) {
+		// prima controlliamo che non siano vuoti i parametri
+		if (StringUtils.isBlank(password) || StringUtils.isBlank(checkPW)
+				|| password != checkPW ) {
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean validateUtenteBean(Utente utenteToBeValidated) {
+		// prima controlliamo che non siano vuoti i parametri
+		if (StringUtils.isBlank(utenteToBeValidated.getUsername()) || StringUtils.isBlank(utenteToBeValidated.getPassword())
+				||  StringUtils.isBlank(utenteToBeValidated.getNome()) ||  StringUtils.isBlank(utenteToBeValidated.getCognome())
+				|| utenteToBeValidated.getDateCreated() == null) {
+			return false;
+		}
+		return true;
+	}
+	
 }
